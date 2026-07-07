@@ -119,6 +119,10 @@ resource "azurerm_monitor_data_collection_endpoint" "this" {
   tags                = module.tags.tags
 
   name = local.dce_name
+
+  # The group is referenced by its literal name, so the graph edge must be explicit or this
+  # races the group's creation.
+  depends_on = [module.rg]
 }
 
 # Complete call: the scope carries all three telemetry producers. Access modes stay Open so
