@@ -84,7 +84,7 @@ No modules.
 
 | Name | Description |
 |------|-------------|
-| <a name="output_private_link_scope_ids"></a> [private\_link\_scope\_ids](#output\_private\_link\_scope\_ids) | Map of scope name to its id (the private endpoint's private\_connection\_resource\_id, subresource azuremonitor). |
-| <a name="output_private_link_scope_ids_zipmap"></a> [private\_link\_scope\_ids\_zipmap](#output\_private\_link\_scope\_ids\_zipmap) | Map of scope name to {name, id} for easy composition. |
+| <a name="output_private_link_scope_ids"></a> [private\_link\_scope\_ids](#output\_private\_link\_scope\_ids) | Map of scope name to its id (the private endpoint's private\_connection\_resource\_id, subresource azuremonitor). Carries the scoped services as a dependency: ARM allows one operation on the scope's dependent chain at a time, so a consumer's private endpoint must create after and destroy before the scoped services (AnotherOperationInProgress otherwise, caught live). |
+| <a name="output_private_link_scope_ids_zipmap"></a> [private\_link\_scope\_ids\_zipmap](#output\_private\_link\_scope\_ids\_zipmap) | Map of scope name to {name, id} for easy composition. Carries the scoped services as a dependency, see private\_link\_scope\_ids. |
 | <a name="output_scoped_service_ids"></a> [scoped\_service\_ids](#output\_scoped\_service\_ids) | Map of scoped service name to its id. |
 <!-- END_TF_DOCS -->
